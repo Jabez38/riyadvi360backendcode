@@ -101,7 +101,7 @@ public class UserController {
 //    
 
     @CrossOrigin()
-    @PostMapping("/users/reg")
+    @PostMapping("/users/register")
     public ResponseEntity<String> registerUser(@Valid @RequestBody User newUser) {
         User existingUser = userRepository.findByEmail(newUser.getEmail());
         
