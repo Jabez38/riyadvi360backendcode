@@ -151,6 +151,7 @@ public class UploadController {
     public  String fileUrl = "";
     public String  status = null;
     public String tilesdesign = "tilesimages";
+    public String images = "img";
     public String wall = "walltiles";
     public String glb = "glbfile";
     
@@ -198,6 +199,53 @@ public class UploadController {
       	
       	return status;
       } 
+      
+      
+      
+      @PostMapping("/listimg")
+      public String filesimageupload(  @RequestParam("file") MultipartFile[] multipartFiles) {
+      	
+      	  try {
+      		 Arrays.asList(multipartFiles).stream().forEach(file -> {
+              	 File filess;
+  				try {
+  					filess = convertMultiPartToFile(file);
+  					 
+  	            	 String fileName = file.getOriginalFilename();
+
+  	     		fileUrl = endpointUrl + "/" + fileName;
+  	     		System.out.println(fileUrl);
+  	     		status = uploadFileTos3bucket(fileName, filess);
+
+  	     		filess.delete();
+  	     		
+  	     		
+  	     		webpageimg user = new webpageimg();		     		
+  	  	            user.setFileUrl(fileUrl);
+  	  	            user.setImages(images);	  
+  	  	      
+  	  	   
+  	  	            userRepository.save(user);
+ 	     	     		
+  				}
+  				
+  				catch (IOException e) {
+  					// TODO Auto-generated catch block
+  					e.printStackTrace();
+  				}
+              
+               });  		
+      	} 
+      	
+      	catch (Exception e) { 
+
+      		return "UploadController().uploadFile().Exception : " + e.getMessage();
+      	}
+
+      	
+      	return status;
+      } 
+      
       
       
       @PostMapping("/list3")

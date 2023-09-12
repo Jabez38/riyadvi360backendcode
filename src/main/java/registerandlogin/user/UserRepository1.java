@@ -14,6 +14,8 @@ import org.springframework.stereotype.Repository;
 public interface UserRepository1 extends JpaRepository < TilesImage, Long  > {
 
 	void save(GlbModel glbmodel);
+	
+	void save(webpageimg webpageimg);
 
 	List<TilesImage> findByFileUrlIn(List<String> fileUrls);
 
