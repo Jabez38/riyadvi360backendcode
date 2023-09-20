@@ -30,7 +30,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-
+import com.twilio.Twilio;
+import com.twilio.http.TwilioRestClient;
+import com.twilio.type.PhoneNumber;
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
@@ -71,7 +73,7 @@ public class UserController {
     private String stripeSecretKey;
     
     
-    @GetMapping("/jab")  
+    @GetMapping("/hhh")  
     public String hello()   
     {  
     return "Hello User, have a nice day.";  
@@ -98,9 +100,27 @@ public class UserController {
 //        	}
 //			return users;
 //    }
-//    
+//   
+//    @CrossOrigin()
+//    @PostMapping("/send-email")
+//    public String sendEmail(
+//            @RequestParam("to") String to,
+//            @RequestParam("subject") String subject,
+//            @RequestParam("text") String text
+//    ) {
+//        SimpleMailMessage message = new SimpleMailMessage();
+//        message.setTo(to);
+//        message.setSubject(subject);
+//        message.setText(text);
+//        javaMailSender.send(message);
+//        return "Email sent successfully!";
+//    }
+//  
+ 
 
-    @CrossOrigin()
+  
+
+   @CrossOrigin()
     @PostMapping("/users/register")
     public ResponseEntity<String> registerUser(@Valid @RequestBody User newUser) {
         User existingUser = userRepository.findByEmail(newUser.getEmail());
@@ -221,6 +241,7 @@ public class UserController {
     }
 
     
+    
     @CrossOrigin()
     @PutMapping("/users/payed")
     public Status payed(@Valid @RequestBody User value) {
@@ -292,6 +313,7 @@ public class UserController {
         response.put("message", "OTP not to your email address");
         return ResponseEntity.ok(response);
     }
+    
     
     @CrossOrigin()
     @PostMapping("/users/verify-otp")
