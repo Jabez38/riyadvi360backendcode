@@ -156,8 +156,8 @@ public class UploadController {
     public String glb = "glbfile";
     
       @PostMapping("/list")
-      public String floorupload(  @RequestParam("file") MultipartFile[] multipartFile,
-              @RequestParam("userid") Long userid) {
+      public String floorupload(  @RequestParam("file") MultipartFile[] multipartFile
+           ) {
       	
       	  try {
       		 Arrays.asList(multipartFile).stream().forEach(file -> {
@@ -177,8 +177,8 @@ public class UploadController {
   	     		TilesImage user = new TilesImage();		     		
   	  	            user.setFileUrl(fileUrl);
   	  	            user.setTiles(tilesdesign);	  
-  	  	        user.setUploadTimestamp(new Date());
-  	  	        user.setUserid(userid);
+//  	  	        user.setUploadTimestamp(new Date());
+//  	  	        user.setUserid(userid);
   	  	            userRepository.save(user);
  	     	     		
   				}

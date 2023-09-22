@@ -118,8 +118,6 @@ public class UserController {
 //  
  
 
-  
-
    @CrossOrigin()
     @PostMapping("/users/register")
     public ResponseEntity<String> registerUser(@Valid @RequestBody User newUser) {
@@ -141,7 +139,6 @@ public class UserController {
         }
     }
 
-    
     
    
       
