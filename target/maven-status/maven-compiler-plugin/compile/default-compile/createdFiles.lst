@@ -15,7 +15,6 @@ registerandlogin\user\UserController.class
 registerandlogin\user\PaymentRequest.class
 registerandlogin\user\UserRepositoryDelete.class
 registerandlogin\user\Contactuser.class
-registerandlogin\user\CorsConfig$1.class
 registerandlogin\user\UserRepository1.class
 registerandlogin\user\OrderRequest$PurchaseUnit$Amount.class
 registerandlogin\user\SecurityConfiguration.class
