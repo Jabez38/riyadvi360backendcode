@@ -91,7 +91,7 @@ public class UploadController {
 //    }
 
     @GetMapping("/users")
-    public List<TilesImage> getUsers(int page,  int size) {
+    public List<TilesImage> getUsers( @RequestParam int page,  @RequestParam int size) {
     	Pageable pageable = PageRequest.of(page, size);
     	 System.out.println(pageable);
         Page<TilesImage> page1 = userRepository.findAll(pageable);     
@@ -156,8 +156,8 @@ public class UploadController {
     public String glb = "glbfile";
     
       @PostMapping("/list")
-      public String floorupload(  @RequestParam("file") MultipartFile[] multipartFile
-           ) {
+      public String floorupload(  @RequestParam("file") MultipartFile[] multipartFile,
+              @RequestParam("userid") Long userid) {
       	
       	  try {
       		 Arrays.asList(multipartFile).stream().forEach(file -> {
@@ -177,8 +177,8 @@ public class UploadController {
   	     		TilesImage user = new TilesImage();		     		
   	  	            user.setFileUrl(fileUrl);
   	  	            user.setTiles(tilesdesign);	  
-//  	  	        user.setUploadTimestamp(new Date());
-//  	  	        user.setUserid(userid);
+  	  	        user.setUploadTimestamp(new Date());
+  	  	        user.setUserid(userid);
   	  	            userRepository.save(user);
  	     	     		
   				}
