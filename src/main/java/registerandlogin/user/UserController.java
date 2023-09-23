@@ -56,7 +56,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.stream.Collectors;
-@CrossOrigin(origins = "https://riyadvi-tiles-app-frontend.vercel.app")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class UserController {
 	

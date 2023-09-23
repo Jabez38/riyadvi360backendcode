@@ -51,11 +51,7 @@ import com.mysql.cj.result.Row;
 
 
 
-
-
-
-
-@CrossOrigin(origins = "https://riyadvi-tiles-app-frontend.vercel.app")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class UploadController {
 	@Autowired
