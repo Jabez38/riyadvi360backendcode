@@ -55,7 +55,7 @@ import com.mysql.cj.result.Row;
 
 
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 public class UploadController {
 	@Autowired
