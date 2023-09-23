@@ -55,7 +55,7 @@ import com.mysql.cj.result.Row;
 
 
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://newtiles-env.eba-mdsv5qca.ap-south-1.elasticbeanstalk.com")
 @RestController
 public class UploadController {
 	@Autowired
@@ -73,7 +73,7 @@ public class UploadController {
 	
     @Value("${bucketName}")
     private String bucketName;
-
+    @CrossOrigin()
     @GetMapping("/list1")
 	public List<TilesImage> floortiles( ) {
     	
@@ -89,7 +89,7 @@ public class UploadController {
 //        Page<TilesImage> page1 = userRepository.findAll(pageable);
 //        return page1.getContent();
 //    }
-
+    @CrossOrigin()
     @GetMapping("/users")
     public List<TilesImage> getUsers( @RequestParam int page,  @RequestParam int size) {
     	Pageable pageable = PageRequest.of(page, size);
@@ -113,7 +113,7 @@ public class UploadController {
     
     
     
-
+    @CrossOrigin()
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteImages(@RequestBody List<String> fileUrls) {
     	
@@ -154,7 +154,7 @@ public class UploadController {
     public String images = "img";
     public String wall = "walltiles";
     public String glb = "glbfile";
-    
+    @CrossOrigin()
       @PostMapping("/list")
       public String floorupload(  @RequestParam("file") MultipartFile[] multipartFile,
               @RequestParam("userid") Long userid) {
@@ -201,7 +201,7 @@ public class UploadController {
       } 
       
       
-      
+    @CrossOrigin()
       @PostMapping("/listimg")
       public String filesimageupload(  @RequestParam("file") MultipartFile[] multipartFiles) {
       	
@@ -247,7 +247,7 @@ public class UploadController {
       } 
       
       
-      
+    @CrossOrigin()
       @PostMapping("/list3")
       public String glbupload(@RequestParam("file") MultipartFile[] multipartFile) {
       	
