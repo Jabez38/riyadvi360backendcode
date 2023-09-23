@@ -55,7 +55,7 @@ import com.mysql.cj.result.Row;
 
 
 
-@CrossOrigin(origins = "https://newtiles-env.eba-mdsv5qca.ap-south-1.elasticbeanstalk.com")
+@CrossOrigin(origins = "https://riyadvi-tiles-app-frontend.vercel.app")
 @RestController
 public class UploadController {
 	@Autowired
