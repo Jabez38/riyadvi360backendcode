@@ -8,12 +8,14 @@ registerandlogin\RegisterLoginApplication.class
 registerandlogin\user\SecurityConfiguration$1.class
 registerandlogin\user\GlbModel.class
 registerandlogin\user\PaymentResponse.class
+registerandlogin\user\CorsConfig.class
 registerandlogin\user\EmailConfig.class
 registerandlogin\user\UploadController.class
 registerandlogin\user\UserController.class
 registerandlogin\user\PaymentRequest.class
 registerandlogin\user\UserRepositoryDelete.class
 registerandlogin\user\Contactuser.class
+registerandlogin\user\CorsConfig$1.class
 registerandlogin\user\UserRepository1.class
 registerandlogin\user\OrderRequest$PurchaseUnit$Amount.class
 registerandlogin\user\SecurityConfiguration.class
