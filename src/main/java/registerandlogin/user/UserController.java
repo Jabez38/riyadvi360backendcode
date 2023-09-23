@@ -56,7 +56,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Random;
 import java.util.stream.Collectors;
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://newtiles-env.eba-mdsv5qca.ap-south-1.elasticbeanstalk.com")
 @RestController
 public class UserController {
 	
