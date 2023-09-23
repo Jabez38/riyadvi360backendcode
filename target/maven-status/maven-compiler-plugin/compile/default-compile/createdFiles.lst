@@ -8,6 +8,7 @@ registerandlogin\RegisterLoginApplication.class
 registerandlogin\user\SecurityConfiguration$1.class
 registerandlogin\user\GlbModel.class
 registerandlogin\user\PaymentResponse.class
+registerandlogin\user\CorsConfig.class
 registerandlogin\user\EmailConfig.class
 registerandlogin\user\UploadController.class
 registerandlogin\user\UserController.class
