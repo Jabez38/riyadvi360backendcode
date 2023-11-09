@@ -72,51 +72,6 @@ public class UserController {
     @Value("${stripe.secretKey}")
     private String stripeSecretKey;
     
-    
-    @GetMapping("/hhh")  
-    public String hello()   
-    {  
-    return "Hello User, have a nice day.";  
-    }  
-    
-//    @CrossOrigin()
-//    @PostMapping("/users/register")
-//    public @Valid User registerUser(@Valid @RequestBody User newUser) {
-//        User users = userRepository.findByEmail(newUser.getEmail());
-////        User usersname = userRepository.findByUsername();
-////        for (User user : users) {        	 
-//        	if(users.getEmail().equals(newUser.getEmail()) && users.getUsername().equals(newUser.getUsername())){     
-//                System.out.println("User Already exists!");
-//               
-//            }
-//       
-//        	else {
-//		String encodedPassword = passwordEncoder.encode(newUser.getPassword());
-//        newUser.setPassword(encodedPassword);
-//        userRepository.save(newUser);
-//     
-//            return userRepository.save(newUser);
-//      
-//        	}
-//			return users;
-//    }
-//   
-//    @CrossOrigin()
-//    @PostMapping("/send-email")
-//    public String sendEmail(
-//            @RequestParam("to") String to,
-//            @RequestParam("subject") String subject,
-//            @RequestParam("text") String text
-//    ) {
-//        SimpleMailMessage message = new SimpleMailMessage();
-//        message.setTo(to);
-//        message.setSubject(subject);
-//        message.setText(text);
-//        javaMailSender.send(message);
-//        return "Email sent successfully!";
-//    }
-//  
- 
 
    @CrossOrigin()
     @PostMapping("/users/register")
@@ -140,17 +95,8 @@ public class UserController {
     }
 
     
+  
    
-      
-//    @CrossOrigin()
-//    @PostMapping("/users/contact")
-//    public Status contactUser(@Valid @RequestBody Contactuser newUser) {
-//        
-//        userRepository.save(newUser);
-//        System.out.println(newUser);
-//        return Status.SUCCESS;
-//    }
-//    
     @CrossOrigin()
     @PostMapping("/users/login")
     public ResponseEntity<Map<String, String>> loginUser(@Valid @RequestBody User userlog) {
@@ -176,7 +122,6 @@ public class UserController {
                 response.put("userid", userIdStr);
                 response.put("message", "success");
                               
-             
                 return ResponseEntity.ok(response);
 //            }
         }
@@ -185,12 +130,26 @@ public class UserController {
     }
 
 
-    
+    @CrossOrigin()
+    @PostMapping("/users/contact")
+    public String ContactUser(@Valid @RequestBody Contactuser contact) {
+ 
+    	Contactuser contactUser = userRepository.save(contact);
+            
+            if (contactUser != null) {
+               
+                return "User registered successfully!";
+            } 
+            
+            else 
+            	
+            {
+                return "Failed to register user";
+            }
+        }
 
 
-
-
-
+   
 
 	private String getJWTToken(String password) {
 	String secretKey = "mySecretKey";

@@ -70,13 +70,14 @@ public class UploadController {
     @Value("${bucketName}")
     private String bucketName;
     @CrossOrigin()
+    
+    
     @GetMapping("/list1")
 	public List<TilesImage> floortiles( ) {
     	
     	List<TilesImage> floorimage = userRepository.findAll();
     	
    		return floorimage;
-   
     }   
 		
 //    @GetMapping("/users")
@@ -85,6 +86,7 @@ public class UploadController {
 //        Page<TilesImage> page1 = userRepository.findAll(pageable);
 //        return page1.getContent();
 //    }
+    
     @CrossOrigin()
     @GetMapping("/users")
     public List<TilesImage> getUsers( @RequestParam int page,  @RequestParam int size) {
@@ -94,6 +96,8 @@ public class UploadController {
         System.out.println(page1.getContent());
         return page1.getContent();
     }
+    
+    
     
 //    @GetMapping("/users")
 //    public List<TilesImage> getUsers(@RequestParam Long userid,
@@ -106,9 +110,6 @@ public class UploadController {
     
     
 
-    
-    
-    
     @CrossOrigin()
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteImages(@RequestBody List<String> fileUrls) {
@@ -117,7 +118,6 @@ public class UploadController {
         
         userRepository.deleteAll(images);
         String region = "ap-south-1"; // Replace with your desired region
-
         String accessKey = "AKIA2IZ54UXNUYTKBVFG";
         String secretKey = "RZlxVBigSxTVLtuOJCbNm1dLKT6MVrHnmhQ4QJH6";
 

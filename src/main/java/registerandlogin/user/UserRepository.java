@@ -12,6 +12,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	User findByEmail(String email);
 
+	Contactuser save(@Valid Contactuser contact);
+
 
 //	User findByEmail();
 
